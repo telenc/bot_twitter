@@ -44,37 +44,35 @@ function BotRetweet() {
 		if (error) {
 			console.log('-------------------');
 			console.log('Bot could not find latest tweet, : ' + error);
-            console.log(id.message);
             console.log('-------------------');
 		}
 		else {
-			var id = {
-				id : data.statuses[0].id_str,
-                message : data.statuses[0].message
-			}
+			for (tweet of data.statuses) {
+                var id = {
+                    id: tweet.id_str,
+                    message: tweet.message
+                }
+                Bot.post('statuses/retweet/:id', id, BotRetweeted);
 
-			Bot.post('statuses/retweet/:id', id, BotRetweeted);
-			
-			function BotRetweeted(error, response) {
-				if (error) {
-                    console.log('-------------------');
-                    console.log(id.id);
-                    console.log('-------------------');
-					console.log('Bot could not retweet, : ' + error);
-				}
-				else {
-					console.log('-------------------------');
-					console.log('Bot retweeted : ' + id.id);
-					console.log(id.message);
-                    console.log('-------------------------');
-				}
-			}
+                function BotRetweeted(error, response) {
+                    if (error) {
+                        console.log(id.id);
+                        console.log('Bot could not retweet, : ' + error);
+                    }
+                    else {
+                        console.log('-------------------------');
+                        console.log('Bot retweeted : ' + id.id);
+                        console.log(id.message);
+                        console.log('-------------------------');
+                    }
+                }
+            }
 		}
 	}
 }
 
 /* Set an interval of 30 minutes (in microsecondes) */
-setInterval(BotRetweet, 60*1000);
+setInterval(BotRetweet, 5*60*1000);
 
 /* Initiate the Bot */
 BotInit();
