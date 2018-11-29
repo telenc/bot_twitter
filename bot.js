@@ -35,7 +35,7 @@ function BotRetweet() {
 
 	var query = {
 		q: TWITTER_SEARCH_PHRASE,
-		result_type: "recent"
+		result_type: "recent",
 	}
 
 	Bot.get('search/tweets', query, BotGotLatestTweet);
@@ -52,7 +52,19 @@ function BotRetweet() {
                     id: tweet.id_str,
                     message: tweet.message
                 }
+                var rt = {
+                    user_id: tweet.user.id
+                }
                 Bot.post('statuses/retweet/:id', id, BotRetweeted);
+                Bot.post('friendships/create', rt, lookRt);
+
+                function lookRt(error, response) {
+                    if (error) {
+                        console.log('error = ' + error);
+                    } else {
+                        console.log('sucess = ' + response)
+                    }
+                }
 
                 function BotRetweeted(error, response) {
                     if (error) {
@@ -71,8 +83,5 @@ function BotRetweet() {
 	}
 }
 
-/* Set an interval of 30 minutes (in microsecondes) */
 setInterval(BotRetweet, 5*60*1000);
-
-/* Initiate the Bot */
 BotInit();
