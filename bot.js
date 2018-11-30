@@ -27,7 +27,41 @@ console.log('The bot is running...');
 
 /* BotInit() : To initiate the bot */
 function BotInit() {
+    deleteUser()
 	BotRetweet();
+}
+
+function deleteUser() {
+    var query = {
+        screen_name: 'PSGInMyBlood',
+        count: 50,
+    }
+
+    console.log(query + '\n');
+    Bot.get('followers/ids', query, unfollow);
+
+    function unfollow(error, data, response) {
+        if (error) {
+            console.log('pas get\n');
+            console.log(error)
+        }
+        else {
+            for (user of data.ids) {
+                var id = {
+                    user_id: user
+                }
+                Bot.post('friendships/destroy', id, work)
+
+                function work(error, response) {
+                    if (error) {
+                        console.log('error')
+                    } else {
+                        console.log('unfollow')
+                    }
+                }
+            }
+        }
+    }
 }
 
 /* BotRetweet() : To retweet the matching recent tweet */
@@ -84,4 +118,5 @@ function BotRetweet() {
 }
 
 setInterval(BotRetweet, 5*60*1000);
+setInterval(deleteUser, 60*60*1000);
 BotInit();
