@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="69801fb6-26f5-4cee-8833-a53c69ee4e75" name="Default Changelist" comment="" />
+    <list default="true" id="69801fb6-26f5-4cee-8833-a53c69ee4e75" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot.js" beforeDir="false" afterPath="$PROJECT_DIR$/bot.js" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -54,8 +57,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bot.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-257">
-              <caret line="29" column="6" selection-start-line="29" selection-start-column="6" selection-end-line="29" selection-end-column="6" />
+            <state relative-caret-position="165">
+              <caret line="11" column="80" selection-start-line="11" selection-start-column="80" selection-end-line="11" selection-end-column="80" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -213,15 +216,16 @@
       <workItem from="1539858590259" duration="1763000" />
       <workItem from="1539947664792" duration="19000" />
       <workItem from="1543494622843" duration="616000" />
-      <workItem from="1543519754535" duration="11165000" />
+      <workItem from="1543519754535" duration="11456000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20051000" />
+    <option name="totallyTimeSpent" value="20342000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20969023" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -272,8 +276,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/bot.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-257">
-          <caret line="29" column="6" selection-start-line="29" selection-start-column="6" selection-end-line="29" selection-end-column="6" />
+        <state relative-caret-position="165">
+          <caret line="11" column="80" selection-start-line="11" selection-start-column="80" selection-end-line="11" selection-end-column="80" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
