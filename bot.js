@@ -8,8 +8,8 @@
 /* Configure the Twitter API */
 var TWITTER_CONSUMER_KEY = 'MG6rscLf8YVRyGTGdwK5rGyM3';
 var TWITTER_CONSUMER_SECRET = '4ynWZrFLFxo8PGMp8CNveR2sp46hNFmRB6dQG18kana38gp2Xt';
-var TWITTER_ACCESS_TOKEN = '1051406254424420352-Y62EZBsn2fDebX9W2ZOgtOehMq28EY';
-var TWITTER_ACCESS_TOKEN_SECRET = 'HoqTQTbEQv0imfyKAqg8TS5McHOrABD4PNmvknkdF4S7a';
+var TWITTER_ACCESS_TOKEN = '1051406254424420352-AlmRDamPg2ZHnIW8p7G2NUVEnekQqY';
+var TWITTER_ACCESS_TOKEN_SECRET = 'xvoLk1n2S4nJRAGO1YLpMeNsPRkhnUoKdSaSqgLueufyY';
 
 /* Set Twitter search phrase */
 var TWITTER_SEARCH_PHRASE = 'Paris PSG';
@@ -27,32 +27,32 @@ console.log('The bot is running...');
 
 /* BotInit() : To initiate the bot */
 function BotInit() {
-    deleteUser()
+    //deleteUser();
 	BotRetweet();
 }
 
 function deleteUser() {
     var query = {
         screen_name: 'PSGInMyBlood',
-        count: 50,
-    }
+        count: 50
+    };
 
     console.log(query + '\n');
-    Bot.get('followers/ids', query, unfollow);
+    Bot.get('friends/ids', query, unfollow);
 
     function unfollow(error, data, response) {
         if (error) {
+            console.log(error);
             console.log('pas get\n');
-            console.log(error)
         }
         else {
             for (user of data.ids) {
                 var id = {
                     user_id: user
                 }
-                Bot.post('friendships/destroy', id, work)
+                Bot.post('friendships/destroy', id, work);
 
-                function work(error, response) {
+                function work(error, data, response) {
                     if (error) {
                         console.log('error')
                     } else {
@@ -77,7 +77,7 @@ function BotRetweet() {
 	function BotGotLatestTweet (error, data, response) {
 		if (error) {
 			console.log('-------------------');
-			console.log('Bot could not find latest tweet, : ' + error);
+			console.log('Bot could not find latest tweet. ' + error);
             console.log('-------------------');
 		}
 		else {
@@ -118,5 +118,5 @@ function BotRetweet() {
 }
 
 setInterval(BotRetweet, 5*60*1000);
-setInterval(deleteUser, 60*60*1000);
+//setInterval(deleteUser, 60*60*1000);
 BotInit();
