@@ -27,7 +27,7 @@ console.log('The bot is running...');
 
 /* BotInit() : To initiate the bot */
 function BotInit() {
-    //deleteUser();
+    deleteUser();
 	BotRetweet();
 }
 
@@ -118,5 +118,5 @@ function BotRetweet() {
 }
 
 setInterval(BotRetweet, 5*60*1000);
-//setInterval(deleteUser, 60*60*1000);
+setInterval(deleteUser, 60*60*1000);
 BotInit();
