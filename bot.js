@@ -6,10 +6,10 @@
  */
 
 /* Configure the Twitter API */
-var TWITTER_CONSUMER_KEY = 'MG6rscLf8YVRyGTGdwK5rGyM3';
-var TWITTER_CONSUMER_SECRET = '4ynWZrFLFxo8PGMp8CNveR2sp46hNFmRB6dQG18kana38gp2Xt';
-var TWITTER_ACCESS_TOKEN = '1051406254424420352-CopqakoAcfffnEfcqLhJkcw1FTSHOb';
-var TWITTER_ACCESS_TOKEN_SECRET = 'K5LrGDyBACp76h2Fzjy87fg0MQvgoRcqveefv2el74Y83';
+var TWITTER_CONSUMER_KEY = 'XGlpjA30aisbh4w4kn5ppioF7';
+var TWITTER_CONSUMER_SECRET = 'PW7zvG6oQ9yP14F21i4AK8dFQ0A801bbHWAYzE51sQiFqiLWTw';
+var TWITTER_ACCESS_TOKEN = '1051406254424420352-hdJokCjXkxbw9D7XzINaLPbllil2Vd';
+var TWITTER_ACCESS_TOKEN_SECRET = 'hSyp8NtbfxJyZADRLd7VDDLQ5hLog0VN53tdXmcKKFjBb';
 
 /* Set Twitter search phrase */
 var TWITTER_SEARCH_PHRASE = 'Paris PSG';
@@ -27,14 +27,14 @@ console.log('The bot is running...');
 
 /* BotInit() : To initiate the bot */
 function BotInit() {
-    //deleteUser();
+    deleteUser();
 	BotRetweet();
 }
 
 function deleteUser() {
     var query = {
         screen_name: 'PSGInMyBlood',
-        count: 50
+        count: 100
     };
 
     console.log(query + '\n');
@@ -118,5 +118,5 @@ function BotRetweet() {
 }
 
 setInterval(BotRetweet, 5*60*1000);
-//setInterval(deleteUser, 60*60*1000);
+setInterval(deleteUser, 60*60*1000);
 BotInit();
